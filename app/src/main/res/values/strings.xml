@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Plate Spotting</string>
     <string name="title_home">Spel</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Info</string>
     <string name="description_licsence_plate_bg">Bil på registreringsskyllt</string>
     <string name="saved_number_key" />
+    <string name="text_newGameButton">Starta nytt spel</string>
+    <string name="title_how_to_play">Hur man spelar</string>
+    <string name="how_to_play_1">Målet med spelet är att hitta alla registreringsskyltar, på bilar, motorcyklar m.m., med nummer 001 till 999 I nummerordning. Så för att komma igång måste du först hitta nummer 001. När du hittat 001 börjar du leta efter 002 och sen 003 och så vidare till det att du hittat 999. Spelet tar tid och kräver lite tålamod. Det är perfekt att spela till exempel på resan till och från jobbet eller skolan, på bilresan eller när du bara är ute och går.</string>
+    <string name="how_to_play_2">När du startar appen för första gången får du ett nytt spel direkt och ser en registreringsskylt som visar ABC 001. När du hittat 001 så trycker du på registreringsskylten och den ändras då till ABC 002. Registreringsskylten visar alltid det nummer du ska leta efter. Om du skulle trycka lite för många gånger på registreringsskylten och behöva minska numret kan du göra det genom att trycka längre på registreringskylten.</string>
 </resources>

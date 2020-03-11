@@ -1,6 +1,7 @@
 package se.bagro.platespotting.ui.home
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
@@ -33,21 +34,21 @@ class HomeFragment : Fragment() {
 
         licensePlateTextView.setOnClickListener {
             homeViewModel.increment()
-            with (sharedPref.edit()) {
-                putInt(getString(R.string.saved_number_key), homeViewModel.count)
-                commit()
-            }
+            saveCount(sharedPref)
         }
         licensePlateTextView.setOnLongClickListener {
             homeViewModel.decrease()
-            savedInstanceState?.putInt("number", homeViewModel.count)
-            with (sharedPref.edit()) {
-                putInt(getString(R.string.saved_number_key), homeViewModel.count)
-                commit()
-            }
+            saveCount(sharedPref)
             true
         }
 
         return root
+    }
+
+    private fun HomeFragment.saveCount(sharedPref: SharedPreferences) {
+        with(sharedPref.edit()) {
+            putInt(getString(R.string.saved_number_key), homeViewModel.count)
+            commit()
+        }
     }
 }
