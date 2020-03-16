@@ -13,8 +13,8 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="se.bagro.platespotting.ui.dashboard.DashboardFragment"
+        android:name="se.bagro.platespotting.ui.info.InfoFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_info" />
 
 </navigation>
