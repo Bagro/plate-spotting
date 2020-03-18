@@ -3,8 +3,10 @@ package se.bagro.platespotting.data
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.gson.GsonBuilder
+import se.bagro.platespotting.model.Game
 
-object NumberRepository {
+object GameRepository {
     private lateinit var preferences: SharedPreferences
     private const val PREFERENCES_FILE_NAME = "PlateSpotting"
     private const val CURRENT_NUMBER_KEY = "CurrentNumber"
@@ -14,14 +16,14 @@ object NumberRepository {
     }
 
     fun hasOngoingGame(): Boolean {
-        return getCurrentNumber() > 1
+        return preferences.getString(CURRENT_NUMBER_KEY, null) != null
     }
 
-    fun getCurrentNumber(): Int {
-        return preferences.getInt(CURRENT_NUMBER_KEY, 1)
+    fun getCurrentGame(): Game {
+        return GsonBuilder().create().fromJson(preferences.getString(CURRENT_NUMBER_KEY, null), Game::class.java)
     }
 
-    fun setCurrentNumber(currentNumber: Int) {
-        preferences.edit().putInt(CURRENT_NUMBER_KEY, currentNumber).apply()
+    fun setCurrentGame(currentGame: Game) {
+        preferences.edit().putString(CURRENT_NUMBER_KEY, GsonBuilder().create().toJson(currentGame)).apply()
     }
 }

@@ -8,7 +8,8 @@ import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import se.bagro.platespotting.R
-import se.bagro.platespotting.data.NumberRepository
+import se.bagro.platespotting.data.GameRepository
+import se.bagro.platespotting.model.Game
 
 class InfoFragment : Fragment() {
     override fun onCreateView(
@@ -21,10 +22,10 @@ class InfoFragment : Fragment() {
         val newGameButton: Button = root.findViewById(R.id.newGameButton)
 
         newGameButton.setOnClickListener {
-            if (NumberRepository.hasOngoingGame()) {
+            if (GameRepository.hasOngoingGame()) {
                 buildAlertDialog().show()
             } else {
-                NumberRepository.setCurrentNumber(1)
+                GameRepository.setCurrentGame(Game(0, 1))
             }
 
         }
@@ -38,7 +39,7 @@ class InfoFragment : Fragment() {
         builder.setCancelable(true)
         builder.setMessage(R.string.ongpong_game_warning)
         builder.setPositiveButton(R.string.yes) { dialog, which ->
-            NumberRepository.setCurrentNumber(1)
+            GameRepository.setCurrentGame(Game(0, 1))
             dialog.dismiss()
         }
 
