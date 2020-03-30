@@ -1,9 +1,9 @@
 package se.bagro.platespotting.model
 
-data class Game(var firstDigits: Int, var lastDigit: Int) {
+data class ModernGame(var firstDigits: Int, var lastDigit: Int): IGame {
     private val lastDigitMaxValue: Int = 31
 
-    fun nextNumber() {
+    override fun nextNumber(): String {
         lastDigit++
 
         if (lastDigit > lastDigitMaxValue) {
@@ -16,9 +16,11 @@ data class Game(var firstDigits: Int, var lastDigit: Int) {
                 lastDigit = lastDigitMaxValue
             }
         }
+
+        return toString();
     }
 
-    fun previousNumber() {
+    override fun previousNumber(): String {
         lastDigit--
 
         if (lastDigit < 0) {
@@ -31,6 +33,12 @@ data class Game(var firstDigits: Int, var lastDigit: Int) {
                 lastDigit = 1
             }
         }
+
+        return toString()
+    }
+
+    override fun getType(): GameType {
+        return GameType.Modern
     }
 
     override fun toString(): String {

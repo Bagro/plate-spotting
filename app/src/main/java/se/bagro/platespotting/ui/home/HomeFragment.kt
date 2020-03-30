@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import se.bagro.platespotting.R
 import se.bagro.platespotting.data.GameRepository
-import se.bagro.platespotting.model.Game
+import se.bagro.platespotting.model.ModernGame
 
 class HomeFragment : Fragment() {
 
@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
             homeViewModel.setGame(GameRepository.getCurrentGame())
         }
         else {
-            homeViewModel.setGame(Game(0, 1))
+            homeViewModel.setGame(ModernGame(0, 1))
             GameRepository.setCurrentGame(homeViewModel.currentGame!!)
         }
 

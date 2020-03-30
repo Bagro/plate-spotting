@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import se.bagro.platespotting.R
 import se.bagro.platespotting.data.GameRepository
-import se.bagro.platespotting.model.Game
+import se.bagro.platespotting.model.ModernGame
 
 class InfoFragment : Fragment() {
     override fun onCreateView(
@@ -25,7 +25,7 @@ class InfoFragment : Fragment() {
             if (GameRepository.hasOngoingGame()) {
                 buildAlertDialog().show()
             } else {
-                GameRepository.setCurrentGame(Game(0, 1))
+                GameRepository.setCurrentGame(ModernGame(0, 1))
             }
 
         }
@@ -39,7 +39,7 @@ class InfoFragment : Fragment() {
         builder.setCancelable(true)
         builder.setMessage(R.string.ongpong_game_warning)
         builder.setPositiveButton(R.string.yes) { dialog, which ->
-            GameRepository.setCurrentGame(Game(0, 1))
+            GameRepository.setCurrentGame(ModernGame(0, 1))
             dialog.dismiss()
         }
 
