@@ -6,9 +6,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import se.bagro.platespotting.R
 import se.bagro.platespotting.data.GameRepository
 import se.bagro.platespotting.model.ModernGame
+import se.bagro.platespotting.ui.newGame.NewGameFragment
 
 class HomeFragment : Fragment() {
 
@@ -28,14 +30,6 @@ class HomeFragment : Fragment() {
             licensePlateTextView.text = it
         })
 
-        if (GameRepository.hasOngoingGame()) {
-            homeViewModel.setGame(GameRepository.getCurrentGame())
-        }
-        else {
-            homeViewModel.setGame(ModernGame(0, 1))
-            GameRepository.setCurrentGame(homeViewModel.currentGame!!)
-        }
-
         licensePlateTextView.setOnClickListener {
             homeViewModel.nextNumber()
             GameRepository.setCurrentGame(homeViewModel.currentGame!!)
@@ -44,6 +38,19 @@ class HomeFragment : Fragment() {
             homeViewModel.decrease()
             GameRepository.setCurrentGame(homeViewModel.currentGame!!)
             true
+        }
+
+        if (GameRepository.hasOngoingGame()) {
+            homeViewModel.setGame(GameRepository.getCurrentGame())
+        }
+        else {
+            /*val fragment = NewGameFragment()
+            val fragmentManager = activity!!.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.container, fragment)
+            fragmentTransaction.addToBackStack("Game")
+            fragmentTransaction.commit()*/
+
         }
 
         return root

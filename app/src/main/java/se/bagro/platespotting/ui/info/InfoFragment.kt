@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import se.bagro.platespotting.R
 import se.bagro.platespotting.data.GameRepository
 import se.bagro.platespotting.model.ModernGame
+import se.bagro.platespotting.ui.newGame.NewGameFragment
 
 class InfoFragment : Fragment() {
     override fun onCreateView(
@@ -25,7 +26,8 @@ class InfoFragment : Fragment() {
             if (GameRepository.hasOngoingGame()) {
                 buildAlertDialog().show()
             } else {
-                GameRepository.setCurrentGame(ModernGame(0, 1))
+                //GameRepository.setCurrentGame(ModernGame(0, 1))
+                goNewGame()
             }
 
         }
@@ -39,12 +41,22 @@ class InfoFragment : Fragment() {
         builder.setCancelable(true)
         builder.setMessage(R.string.ongpong_game_warning)
         builder.setPositiveButton(R.string.yes) { dialog, which ->
-            GameRepository.setCurrentGame(ModernGame(0, 1))
+            //GameRepository.setCurrentGame(ModernGame(0, 1))
+            goNewGame()
             dialog.dismiss()
         }
 
         builder.setNegativeButton(R.string.no) { dialog, which -> dialog.dismiss() }
 
         return builder.create()
+    }
+
+    private fun goNewGame(){
+        val fragment = NewGameFragment()
+        val fragmentManager = activity!!.supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.container, fragment)
+        fragmentTransaction.addToBackStack("Info")
+        fragmentTransaction.commit()
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Plate Spotting</string>
+    <string name="title_home">Game</string>
+    <string name="title_dashboard">In</string>
+    <string name="description_licsence_plate_bg">Image of license plate</string>
+    <string name="text_newGameButton">Start new game</string>
+    <string name="title_how_to_play">How to play</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="start_number">Start number</string>
+    <string name="classicGameButton_label">New classical game</string>
+    <string name="hybrisGameButton_label">New hybrid game</string>
+    <string name="modernGameButton_label">New modern game</string>
+    <string name="cancel">Cancel</string>
+    <string name="new_classic_game_description">Game 001-999</string>
+    <string name="new_hybrid_game_description">Game 001-999 then continues with 00A-99Z</string>
+    <string name="new_modern_game_description">Game 001-99Z where 00A comes after 009</string>
+</resources>
