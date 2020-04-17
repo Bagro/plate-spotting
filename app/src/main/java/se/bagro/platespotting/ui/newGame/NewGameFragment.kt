@@ -16,8 +16,6 @@ import se.bagro.platespotting.model.ModernGame
 
 
 class NewGameFragment : Fragment() {
-    private lateinit var viewModel: NewGameViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
