@@ -44,13 +44,7 @@ class HomeFragment : Fragment() {
             homeViewModel.setGame(GameRepository.getCurrentGame())
         }
         else {
-            /*val fragment = NewGameFragment()
-            val fragmentManager = activity!!.supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.container, fragment)
-            fragmentTransaction.addToBackStack("Game")
-            fragmentTransaction.commit()*/
-
+            findNavController().navigate(R.id.action_navigation_home_to_newGameFragment)
         }
 
         return root

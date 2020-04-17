@@ -26,6 +26,7 @@
                 android:layout_height="0dp"
                 android:text="@string/start_number"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/startNumberEditText"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +38,7 @@
                 android:layout_height="43dp"
                 android:ems="10"
                 android:text="1"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

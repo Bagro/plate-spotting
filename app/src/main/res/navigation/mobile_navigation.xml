@@ -28,6 +28,13 @@
         android:id="@+id/newGameFragment"
         android:name="se.bagro.platespotting.ui.newGame.NewGameFragment"
         android:label="new_game_fragment"
-        tools:layout="@layout/new_game_fragment" />
+        tools:layout="@layout/new_game_fragment" >
+        <action
+            android:id="@+id/action_newGameFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_newGameFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
 
 </navigation>
